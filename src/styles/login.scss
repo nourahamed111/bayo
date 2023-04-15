@@ -15,6 +15,16 @@
       margin-top: 5%;
     }
     .form-floating {
+      .password-input {
+        position: relative;
+      }
+      .password-icon {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+      }
       margin-bottom: 4%;
       & label::after {
         background-color: transparent !important;

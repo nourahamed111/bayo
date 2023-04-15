@@ -1,12 +1,19 @@
-import React from "react";
-import '../../styles/login.scss';
+import React, { useState } from "react";
+import "../../styles/login.scss";
 import Logo from "../../components/logo";
+
 export default function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
     <>
-      <div class="col-12 d-flex justify-content-center align-items-center outer-div">
-        <div class="main-div">
-          <Logo/>
+      <div className="col-12 d-flex justify-content-center align-items-center outer-div">
+        <div className="main-div">
+          <Logo />
           <div className="login-form">
             <h1>Login</h1>
             <div className="form-floating ">
@@ -16,31 +23,41 @@ export default function Login() {
                 id="floatingInput"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput">Email address</label>
+              <label htmlFor="floatingInput">Email address</label>
             </div>
-            <div className="form-floating">
+            <div className="form-floating password-input">
               <input
-            
-                type="password"
+                type={showPassword ? "text" : "password"}
                 className="form-control"
                 placeholder="Password"
               />
-              
-              <label className="label" >Password</label>
+              <label htmlFor="floatingInput">Password</label>
+              <img
+               alt="password"
+                className="password-icon"
+                onClick={handlePasswordVisibility}
+                src="https://img.icons8.com/material-sharp/24/1A1A1A/visible.png"
+              />
             </div>
           </div>
           <div className="form-actions">
-            <h6>Forget my password</h6>
+            <h6>Forgot my password</h6>
             <button>LOGIN</button>
           </div>
           <div className="break-div">
-            <hr/>
+            <hr />
             <p>or</p>
-            <hr/>
+            <hr />
           </div>
           <div className="login-options">
-            <button> <img src="https://img.icons8.com/color/48/null/google-logo.png"/>Sign in With Google</button>
-            <button> <img src="https://img.icons8.com/color/48/null/microsoft.png"/>Sign in With Microsoft</button>
+            <button>
+              <img alt="icon"  src="https://img.icons8.com/color/48/null/google-logo.png" />
+              Sign in With Google
+            </button>
+            <button>
+              <img alt="icon" src="https://img.icons8.com/color/48/null/microsoft.png" />
+              Sign in With Microsoft
+            </button>
           </div>
         </div>
       </div>
