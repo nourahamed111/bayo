@@ -60,9 +60,7 @@ export default function Login() {
                     message: "Password must have at least 8 characters",
                   },
                   pattern: {
-                    minLength:{
-                      value:8,
-                    },
+                   value: /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/,
                     message:
                       "Password must contain at least 1 number and 1 letter",
                   },
