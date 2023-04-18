@@ -32,16 +32,14 @@ export default function Login() {
             <div className="form-floating">
               <input
                 type="email"
-                className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                className={`form-control ${errors.email ? "is-invalid border border-danger " : ""}`}
                 id="floatingInput"
                 placeholder="name@example.com"
-                {...register("email", {
+                {...register("email",{
                   required: "Email is required",
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
                     message: "Invalid email address",
                   },
-                })}
+                )}
               />
               <label htmlFor="floatingInput">Email address</label>
               {errors.email && (
@@ -52,7 +50,7 @@ export default function Login() {
               <input
                 type={showPassword ? "text" : "password"}
                 className={`form-control ${
-                  errors.password ? "is-invalid" : ""
+                  errors.password ? "is-invalid border border-danger" : ""
                 }`}
                 placeholder="Password"
                 {...register("password", {
@@ -62,7 +60,9 @@ export default function Login() {
                     message: "Password must have at least 8 characters",
                   },
                   pattern: {
-                    value: /^(?=.*\d)(?=.*[a-zA-Z]).{8,}$/,
+                    minLength:{
+                      value:8,
+                    },
                     message:
                       "Password must contain at least 1 number and 1 letter",
                   },

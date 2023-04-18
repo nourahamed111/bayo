@@ -1,5 +1,4 @@
 @import "./color.scss";
-
 .main-div {
   margin: 90px;
   padding-left: 80px !important;
@@ -25,11 +24,16 @@
         right: 10px;
         transform: translateY(-50%);
       }
+   
+      &label:focus{
+       color:$popColor!important;
+      }
       margin-bottom: 4%;
       & label::after {
         background-color: transparent !important;
-        color: $popColor !important;
+        color:$popColor!important;
       }
+
       input.form-control {
         background-color: $inputColor;
         border: none;
